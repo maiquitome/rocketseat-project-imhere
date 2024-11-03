@@ -1,10 +1,27 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, TextInput, View, TouchableOpacity } from "react-native";
+import {
+  Text,
+  TextInput,
+  View,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import { styles } from "./styles";
 
 import { Participant } from "../../components/Participant";
 
 export function Home() {
+  const participants = [
+    "Rodrigo",
+    "Vini",
+    "Diego",
+    "Biro",
+    "Ana",
+    "Isa",
+    "Jack",
+    "Mayk",
+  ];
+
   function handleParticipantAdd() {
     console.log("Você clicou no botão de Adicionar");
   }
@@ -32,7 +49,15 @@ export function Home() {
         </TouchableOpacity>
       </View>
 
-      <Participant name="Rodrigo" onRemove={handleParticipantRemove} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {participants.map((participant) => (
+          <Participant
+            key={participant}
+            name={participant}
+            onRemove={handleParticipantRemove}
+          />
+        ))}
+      </ScrollView>
 
       <StatusBar style="auto" />
     </View>
