@@ -68,7 +68,7 @@ export function Home() {
         )}
       />
 
-      <StatusBar style="auto" />
+      <StatusBar style="light" backgroundColor="transparent" translucent />
     </View>
   );
 }
