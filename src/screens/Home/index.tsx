@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   Text,
@@ -12,16 +13,7 @@ import { styles } from "./styles";
 import { Participant } from "../../components/Participant";
 
 export function Home() {
-  const participants = [
-    "Rodrigo",
-    "Vini",
-    "Diego",
-    "Biro",
-    "Ana",
-    "Isa",
-    "Jack",
-    "Mayk",
-  ];
+  const [participants, setParticipants] = useState(["João"]);
 
   function handleParticipantAdd() {
     if (participants.includes("Rodrigo")) {
@@ -30,6 +22,8 @@ export function Home() {
         "Já existe um participante na lista com esse nome"
       );
     }
+
+    setParticipants((prevState) => [...prevState, "Ana"]);
   }
 
   function handleParticipantRemove(name: string) {
