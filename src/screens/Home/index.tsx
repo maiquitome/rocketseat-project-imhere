@@ -32,7 +32,13 @@ export function Home() {
     Alert.alert("Remover participante", `Remover o participante ${name}?`, [
       {
         text: "Sim",
-        onPress: () => Alert.alert("Deletado"),
+        onPress: () => {
+          setParticipants((prevState) =>
+            prevState.filter((participantName) => participantName !== name)
+          );
+
+          Alert.alert(`Participante ${name} removido(a)`);
+        },
       },
       {
         text: "Não",
